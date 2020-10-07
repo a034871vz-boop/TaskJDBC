@@ -1,10 +1,10 @@
 package jm.task.core.jdbc;
 
+import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import java.util.HashSet;
 
 
 public class Main {
@@ -15,7 +15,7 @@ public class Main {
         service.saveUser("ЧЕТВЕРТОГО","ЧИСЛА", (byte) 23);
         service.saveUser("В","ЧЕТЫРЕ", (byte) 33);
         service.saveUser("С ЧЕТВЕРТЬЮ","ЧАСА", (byte) 43);
-        service.getAllUsers();
+        for (User u : service.getAllUsers()) System.out.println(u.toString());
         service.cleanUsersTable();
         service.dropUsersTable();
     }
